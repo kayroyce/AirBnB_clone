@@ -6,6 +6,7 @@
 
 import json
 from models.base_model import BaseModel
+from models.user import user
 
 class FileStorage:
     __file_path = "file.json"
@@ -24,7 +25,7 @@ class FileStorage:
             to_dict[key] = obj.to_dict()
 
         with open(FileStorage.__file_path, "w") as f:
-            json.dump(to_dict, f)
+            json.dump(to_dict, f, indent=4)
 
     def reload(self):
         try:
@@ -33,9 +34,22 @@ class FileStorage:
 
             new_dict = {}
             for obj_name, obj_details in _dict.items():
-                obj = BaseModel(**obj_details)
+                class_name = obj_name.split(".")[0]
+                obj = eval(class_name)(**obj_details)
                 new_dict[obj_name] = obj
 
             FileStorage.__objects = new_dict
-        escept FileNotFoundError:
+        except FileNotFoundError:
             pass
+
+    def delete(self, obj):
+        class_name = obj.__class__.__name__
+        id = obj.id
+        key = f"{class_name}.{id}"
+
+        if key in FileStorage.__objects:
+            del FileStorage.__objects[key]
+            self.save()
+            return True
+
+        return False
