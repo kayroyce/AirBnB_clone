@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''base_model.py
 '''
 
@@ -31,7 +32,7 @@ class BaseModel:
                     models.storage.save()
 
                 def to_dict(self):
-                    to_dict = self.__dict__
+                    to_dict = self.__dict__.copy()
                     to_dict["__class__"] = self.__class__.__name__
                     to_dict['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
                     to_dict['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")

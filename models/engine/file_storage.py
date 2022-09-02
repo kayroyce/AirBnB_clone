@@ -1,5 +1,7 @@
+#!/usr/bin/python3
+
 """
-    Creation of File storage
+    File storage.py file creation
 """
 
 import json
@@ -7,16 +9,17 @@ from models.base_model import BaseModel
 
 class FileStorage:
     __file_path = "file.json"
-    __objects = {}
+    __object = {}
 
     def all(self):
-        return FileStorage.__objects
-
-        key = f"{obj.__class__.__name__}.{obj.id}"
-        FileStorage.__objects[key] = obj
+         return FileStorage.__objects
 
     def new(self, obj):
-        to_dict = {}
+         key = f"{obj.__class__.__name__}.{obj.id}"
+         FileStorage.__objects[key] = obj
+
+    def save(self):
+        to_dick = {}
         for key, obj in FileStorage.__objects.items():
             to_dict[key] = obj.to_dict()
 
@@ -34,5 +37,5 @@ class FileStorage:
                 new_dict[obj_name] = obj
 
             FileStorage.__objects = new_dict
-        except FileNotFoundError:
+        escept FileNotFoundError:
             pass
