@@ -1,16 +1,18 @@
+#!/usr/bin/python3
 '''console.py
 '''
 
 import cmd
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
 
-    model_list = ["BaseModel", "User"]
+    model_list = ["BaseModel", "User", "Place", "Review", "State", "Amenity", "City"]
     
 
     def do_quit(self, args):
@@ -83,6 +85,9 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_create(self, args):
+        '''
+        This command create
+        '''
 
         error = HBNBCommand.handle_errors(args)
         

@@ -5,8 +5,7 @@
 """
 
 import json
-from models.base_model import BaseModel
-from models.user import user
+import models
 
 class FileStorage:
     __file_path = "file.json"
