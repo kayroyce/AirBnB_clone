@@ -177,4 +177,5 @@ class HBNBCommand(cmd.Cmd):
         print("** instance id not found **")
 
 if __name__ == "__main__":
+
     HBNBCommand().cmdloop()
