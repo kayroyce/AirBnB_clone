@@ -31,6 +31,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         return False
 
+
     def onecmd(self, args):
         if args == "quit":
             return self.do_quit(args)
@@ -184,4 +185,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    HBNBCommand().cmdloop()
+     HBNBCommand().cmdloop()
