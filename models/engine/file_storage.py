@@ -27,9 +27,8 @@ class FileStorage:
     def save(self):
         to_dict = {}
         for key, obj in FileStorage.__objects.items():
-            key = f"{obj.__class__.__name__}.{obj.id}"
-            to_save.setdefault(key, obj.to_dict())
-
+            to_dict[key] = obj.to_dict()
+            
         with open(FileStorage.__file_path, 'w') as f:
             json.dump(to_dict, f, indent=4)
 
@@ -38,12 +37,14 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                data = json.load(f)
         
-            for obj_dict in data.values():
-                key = f"{obj_dict['__class__']}.{obj_dict['id']}"
+            fnew_dict = {}
+            for obj_name, obj_details in _dict.items():
+                class_name = obj_name.split(".")[0]
+                obj = eval(class_name)(**obj_details)
+                new_dict[obj_name] = obj
 
-                FileStorage.__objects.\
-                    setdefault(key, eval(obj_dict['__class__'])(**obj_dict))
-
+            FileStorage.__objects = new_dict
+                    
         except FileNotFoundError as e:
             pass
 
