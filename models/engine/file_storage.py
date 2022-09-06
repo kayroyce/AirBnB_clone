@@ -37,7 +37,7 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                data = json.load(f)
         
-            fnew_dict = {}
+            new_dict = {}
             for obj_name, obj_details in _dict.items():
                 class_name = obj_name.split(".")[0]
                 obj = eval(class_name)(**obj_details)
