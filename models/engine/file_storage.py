@@ -38,7 +38,7 @@ class FileStorage:
                data = json.load(f)
         
             new_dict = {}
-            for obj_name, obj_details in _dict.items():
+            for obj_name, obj_details in new_dict.items():
                 class_name = obj_name.split(".")[0]
                 obj = eval(class_name)(**obj_details)
                 new_dict[obj_name] = obj
