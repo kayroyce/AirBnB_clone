@@ -9,7 +9,9 @@ import models
 
 
 class BaseModel:
-    def __init__(self, **kwargs):
+
+    def __init__(self, *args, **kwargs):
+
         if kwargs:
             for key in kwargs.keys():
                 if key != "__class__":
@@ -32,7 +34,9 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        to_dict = self.__dict__.copy()
+        to_dict = {}
+        for key, value in self.__dict__.items():
+            to_dict[key] = value
         to_dict["__class__"] = self.__class__.__name__
         to_dict['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         to_dict['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")

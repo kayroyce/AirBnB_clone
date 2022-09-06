@@ -1,0 +1,14 @@
+{
+    "BaseModel.4815e4da-69b6-448d-bf79-dbbb26238002": {
+        "id": "4815e4da-69b6-448d-bf79-dbbb26238002",
+        "created_at": "2022-09-05T12:44:27.345348",
+        "updated_at": "2022-09-05T12:44:27.345367",
+        "__class__": "BaseModel"
+    },
+    "BaseModel.33e3cfb6-9ad0-46ed-bc37-069d7bf19929": {
+        "id": "33e3cfb6-9ad0-46ed-bc37-069d7bf19929",
+        "created_at": "2022-09-05T12:46:05.258863",
+        "updated_at": "2022-09-05T12:46:05.258872",
+        "__class__": "BaseModel"
+    }
+}

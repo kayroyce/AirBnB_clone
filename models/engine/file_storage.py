@@ -3,13 +3,13 @@
 """
     File storage.py file creation
 """
-
+from .base_model import BaseModel
 import json
 import models
 
 class FileStorage:
     __file_path = "file.json"
-    __object = {}
+    __objects = {}
 
     def all(self):
          return FileStorage.__objects
@@ -19,26 +19,26 @@ class FileStorage:
          FileStorage.__objects[key] = obj
 
     def save(self):
-        to_dick = {}
+        to_dict = {}
         for key, obj in FileStorage.__objects.items():
-            to_dict[key] = obj.to_dict()
+            key = f"{obj.__class__.__name__}.{obj.id}"
+            to_save.setdefault(key, obj.to_dict())
 
-        with open(FileStorage.__file_path, "w") as f:
+        with open(FileStorage.__file_path, 'w') as f:
             json.dump(to_dict, f, indent=4)
 
     def reload(self):
         try:
-            with open(FileStorage.__file_path, "r") as f:
-                _dict = json.load(f)
+            with open(FileStorage.__file_path, 'r') as f:
+               data = json.load(f)
+        
+            for obj_dict in data.values():
+                key = f"{obj_dict['__class__']}.{obj_dict['id']}"
 
-            new_dict = {}
-            for obj_name, obj_details in _dict.items():
-                class_name = obj_name.split(".")[0]
-                obj = eval(class_name)(**obj_details)
-                new_dict[obj_name] = obj
+                FileStorage.__objects.\
+                    setdefault(key, eval(obj_dict['__class__'])(**obj_dict))
 
-            FileStorage.__objects = new_dict
-        except FileNotFoundError:
+        except FileNotFoundError as e:
             pass
 
     def delete(self, obj):
