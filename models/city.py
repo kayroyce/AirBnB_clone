@@ -4,12 +4,9 @@
 from models import BaseModel
 
 class City(BaseModel):
-    """ Sub class """
+    """ class City"""
 
-    def __init__(self, *args, **kwargs):
-        """ init method for lass of City """
-
-        sef.state_id = kwargs.pop("name", '')
-        super().__init__(*args, **kwargs)
+    state_id = ""
+    name = ""
 
 

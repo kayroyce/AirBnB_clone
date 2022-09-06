@@ -1,11 +1,11 @@
-#!/usr/bin.python3
-""" import modules """
+#!/usr/bin/python3
+"""import modules 
+"""
 
 from models import BaseModel
 
 class Amenity(BaseModel):
+    """Class Amenity
+    """
 
-    def __init__(self, *args, **kwargs):
-
-        self.name = kwargs.pop("name", '')
-        super().__init__(*args, **kwargs)
+    name =""

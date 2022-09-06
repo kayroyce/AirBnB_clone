@@ -74,5 +74,11 @@
         "created_at": "2022-09-06T20:59:15.987380",
         "updated_at": "2022-09-06T20:59:15.987380",
         "__class__": "BaseModel"
+    },
+    "BaseModel.3bd96e4b-cadc-493d-848e-d91e9a0b71f8": {
+        "id": "3bd96e4b-cadc-493d-848e-d91e9a0b71f8",
+        "created_at": "2022-09-06T22:11:59.316070",
+        "updated_at": "2022-09-06T22:11:59.316070",
+        "__class__": "BaseModel"
     }
 }

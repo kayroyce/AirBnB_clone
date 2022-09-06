@@ -26,3 +26,11 @@ my_user2.password = "root"
 my_user2.save()
 print(my_user2)
 
+print("-- Create a new User 3 --")
+my_user3 = User()
+my_user3.first_name = "Kolawole"
+my_user3.email = "kayroyce@mail.com"
+my_user3.password = "1234"
+my_user3.save()
+print(my_user3)
+
