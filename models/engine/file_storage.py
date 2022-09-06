@@ -45,7 +45,7 @@ class FileStorage:
 
             FileStorage.__objects = new_dict
                     
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             pass
 
     def delete(self, obj):
