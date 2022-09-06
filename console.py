@@ -2,18 +2,8 @@
 '''Entry point of the command interpreter
 '''
 import cmd
-<<<<<<< HEAD
-from models.base_model import BaseModel
-from models.user import User
-from models import storage
-
-
-class HBNBCommand(cmd.Cmd):
-    prompt = "(hbnb)"
-=======
 import json
 import re
->>>>>>> ff893814984c5a814c991b92edffac3a7453cc06
 
 import models
 from models import BaseModel, User, State, \
