@@ -1,0 +1,11 @@
+/* Always at the bottom*/
+footer {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    place-items: center; 
+    display: grid;
+    border-top: 1px solid #CCCCCC;
+    margin-top: auto; 
+}
+
